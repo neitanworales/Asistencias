@@ -9,10 +9,12 @@
         <textarea id="comentario" formControlName="comentario" class="form-control"></textarea>
 
         <div *ngFor="let sunday of sundays; index as i; first as isFirst">
-            {{sunday}}
+            {{sunday}} |
         </div>
 
         <p>Complete the form to enable button.</p>
         <button type="submit" [disabled]="!profileForm.valid">Submit</button>
     </form>
+
+    
 </div>
