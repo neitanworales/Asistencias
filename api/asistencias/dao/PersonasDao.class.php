@@ -28,7 +28,7 @@ class PersonasDao
      */
     public function getPersonas()
     {
-        $que = "SELECT * FROM personas ORDER BY nombre";
+        $que = "SELECT * FROM personas ORDER BY created";
         return $this->bd->ObtenerConsulta($que);
     }
 
