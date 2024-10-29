@@ -13,6 +13,7 @@ import { PersonaDao } from './api/PersonaDao';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UtilidadesDao } from './api/UtilidadesDao';
+import { PersonaComponent } from './persona/persona.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UtilidadesDao } from './api/UtilidadesDao';
     MtoPersonaComponent,
     HeaderComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    PersonaComponent
   ],
   imports: [
     HttpClientModule,

@@ -51,4 +51,13 @@ class PersonasDao
         return $this->bd->ejecutar($que);
     }
 
+    public function getAsistenciasByIdPersona($idpersona){
+        $que = "SELECT * FROM asistencias WHERE id_persona=$idpersona";
+        return $this->bd->ObtenerConsulta($que);
+    }
+
+    public function getNotasByIdPersona($idpersona){
+        $que = "SELECT * FROM notas WHERE id_persona=$idpersona";
+        return $this->bd->ObtenerConsulta($que);
+    }
 }

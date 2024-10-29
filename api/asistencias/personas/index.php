@@ -16,13 +16,19 @@ $datos = PersonasDao::getInstance();
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $id = $_GET['id'];
     if (empty($id)) {
-        $response['personas'] = $datos->getPersonas();
+        $i = 0;
+        $personas = $datos->getPersonas();
+        foreach($personas as $persona){
+            $personas[$i++] = getData($datos,$persona);
+        }
+        $response['personas'] = $personas;
         $response["mensaje"] = "Ok";
         $response["code"] = 200;
         http_response_code(200);
         echo json_encode($response);
     } else {
-        $response['personas'] = $datos->getPersonaById($id);
+        $persona = $datos->getPersonaById($id);
+        $response['persona'] = getData($datos,$persona[0]);
         $response["mensaje"] = "Ok";
         $response["code"] = 200;
         http_response_code(200);
@@ -65,4 +71,9 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 }
 
+function getData($datos,$persona){
+    $persona['asistencias'] = $datos->getAsistenciasByIdPersona($persona['id']);
+    $persona['notas'] = $datos->getNotasByIdPersona($persona['id']);
+    return $persona;
+}
 ?>

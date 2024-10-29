@@ -12,4 +12,6 @@ export class Persona {
     status!: string;
     activo!: boolean;
     created!: Date;
+    asistencias!: '';
+    notas!:''
 }

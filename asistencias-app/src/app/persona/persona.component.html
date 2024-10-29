@@ -1,0 +1,39 @@
+<div class="container">
+    <h1>{{persona.nombre}}</h1>
+    <p>{{persona.telefono}}</p>
+    <p>{{persona.status}}</p>
+
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="persona.diezmo" >
+        <label class="form-check-label" for="flexSwitchCheckDefault">Diezmo</label>
+    </div>
+
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="persona.ofrenda">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Ofrenda</label>
+    </div>
+
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="persona.kit">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Ofrenda</label>
+    </div>
+
+    <label for="txtReligion">Religión:</label>
+    <input class="form-control" id="txtReligion" value="{{persona.religion}}"/>
+
+    <label for="txtResidencia">Residencia:</label>
+    <input class="form-control" id="txtResidencia" value="{{persona.residencia}}"/>
+
+    <label for="txtLlegoPor">Llegó por:</label>
+    <input class="form-control" id="txtLlegoPor" value="{{persona.llegoPor}}"/>
+
+    <label for="txtComentario">Comentario</label>
+    <textarea class="form-control" id="txtLlegoPor" value="{{persona.comentario}}"></textarea>
+
+    {{persona.asistencias}}
+    {{persona.notas}}
+
+    <p>Record status : {{persona.activo}}</p>
+    <p>Created at: {{persona.created}}</p>
+
+</div>
