@@ -49,8 +49,9 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nombre = !empty($input['nombre']) ? $input['nombre'] : null;
         $telefono = !empty($input['telefono']) ? $input['telefono'] : null;
         $comentario = !empty($input['comentario']) ? $input['comentario'] : null;
+        $asistencias = !empty($input['asistencias']) ? $input['asistencias'] : null;
 
-        if ($datos->insertPersona($nombre, $telefono, $comentario)) {
+        if ($datos->insertPersona($nombre, $telefono, $comentario, $asistencias)) {
             $response["mensaje"] = "Guardado correctamente";
             $response["code"] = 201;
             http_response_code(201);
