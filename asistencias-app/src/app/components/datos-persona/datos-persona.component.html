@@ -6,28 +6,29 @@
         <h2>{{persona.nombre}}</h2>
         <p>{{persona.status}}</p>
         <p>
-            <small>{{persona.telefono}}</small>
-            <a aria-label="Chat on WhatsApp" href="https://wa.me/1{{persona.telefono}}"><img alt="Chat on WhatsApp" src="/assets/img/WhatsAppButtonGreenMedium.png" /></a>
+            {{persona.telefono}}
+            <a aria-label="Chat on WhatsApp" href="https://wa.me/1{{persona.telefono}}"><img alt="Chat on WhatsApp"
+                    src="/assets/img/WhatsAppButtonGreenMedium.png" /></a>
         </p>
         <p>{{persona.comentario}}</p>
 
-        <p>
-            <label for="txtReligion">Religión: {{persona.religion}}</label>
-        </p>
 
-        <p>
-            <label for="txtResidencia">Residencia: {{persona.residencia}}</label>
-        </p>
-
-        <p>
-            <label for="txtLlegoPor">Llegó por: {{persona.llegoPor}}</label>
-        </p>
-
-
-        <a [routerLink]="['/edit-asistente', persona.id]" class="follow" [hidden]="shortview">Editar</a>
+        <a [routerLink]="['/edit-asistente', persona.id]" class="follow">Editar</a>
         <a [routerLink]="['/asistentes',  persona.id]" class="info" [hidden]="!shortview">+ Info</a>
 
         <div [hidden]="shortview">
+            <p>
+                <label for="txtReligion">Religión: {{persona.religion}}</label>
+            </p>
+
+            <p>
+                <label for="txtResidencia">Residencia: {{persona.residencia}}</label>
+            </p>
+
+            <p>
+                <label for="txtLlegoPor">Llegó por: {{persona.llegoPor}}</label>
+            </p>
+
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" role="switch" id="checkDiezmo"
                     [checked]="persona.diezmo">
