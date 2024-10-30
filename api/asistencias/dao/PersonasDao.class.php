@@ -44,11 +44,27 @@ class PersonasDao
         return $this->bd->ObtenerConsulta($que);
     }
 
-    public function insertPersona($nombre, $telefono, $comentario)
+    public function insertPersona($nombre, $telefono, $comentario, $asistencias)
     {
         $que = "INSERT INTO `personas` (`id`, `nombre`, `telefono`, `comentario`, `status`) 
         VALUES (NULL, '$nombre', '$telefono', '$comentario', 'A');";
-        return $this->bd->ejecutar($que);
+        $response = $this->bd->ejecutarPlus($que);
+        if($response){
+            if(!empty($asistencias)){
+                $que = "INSERT INTO `asistencias` (`id`, `id_persona`, `fecha`) VALUES ";
+                $iterator = 0;
+                foreach ($asistencias as &$asistencia) {
+                    $que.="(NULL, '$response', '".$asistencia['fecha']."')";
+                    $iterator++;
+                    if($iterator<count($asistencias)){
+                        $que.=",";
+                    }
+                }
+                return $this->bd->ejecutar($que);
+            }
+            return true;
+        }
+        return false;
     }
 
     public function getAsistenciasByIdPersona($idpersona){

@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'asistentes', component: ListaPersonasComponent },
   { path: 'new-asistente', component: MtoPersonaComponent },
   { path: 'edit-asistente', component: MtoPersonaComponent },
-  { path: 'asistente', component: PersonaComponent }
+  { path: 'asistentes/:id', component: PersonaComponent }
 ];
 
 @NgModule({

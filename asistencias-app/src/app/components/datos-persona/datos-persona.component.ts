@@ -11,4 +11,7 @@ export class DatosPersonaComponent {
   @Input()
   persona!: Persona;
 
+  @Input()
+  shortview!: boolean;
+
 }

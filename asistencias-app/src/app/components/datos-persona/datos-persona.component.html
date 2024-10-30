@@ -1,48 +1,72 @@
-<div class="container">
-    <h1>{{persona.nombre}}</h1>
-    <p>{{persona.telefono}}</p>
-    <p>{{persona.status}}</p>
+<figure class="snip1336">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+    <figcaption>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample4.jpg" alt="profile-sample4"
+            class="profile" />
+        <h2>{{persona.nombre}}</h2>
+        <p>{{persona.status}}</p>
+        <p>
+            {{persona.telefono}}
+            <a aria-label="Chat on WhatsApp" href="https://wa.me/1{{persona.telefono}}"><img alt="Chat on WhatsApp"
+                    src="/assets/img/WhatsAppButtonGreenMedium.png" /></a>
+        </p>
+        <p>{{persona.comentario}}</p>
 
-    <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="checkDiezmo" [checked]="persona.diezmo" >
-        <label class="form-check-label" for="checkDiezmo">Diezmo</label>
-    </div>
 
-    <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="checkOfrenda" [checked]="persona.ofrenda">
-        <label class="form-check-label" for="checkOfrenda">Ofrenda</label>
-    </div>
+        <a [routerLink]="['/edit-asistente', persona.id]" class="follow">Editar</a>
+        <a [routerLink]="['/asistentes',  persona.id]" class="info" [hidden]="!shortview">+ Info</a>
 
-    <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="checkKit" [checked]="persona.kit">
-        <label class="form-check-label" for="checkKit">Kit</label>
-    </div>
+        <div [hidden]="shortview">
+            <p>
+                <label for="txtReligion">Religión: {{persona.religion}}</label>
+            </p>
 
-    <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="checkPrope" [checked]="persona.propedeutico">
-        <label class="form-check-label" for="checkPrope">Propedéutico</label>
-    </div>
+            <p>
+                <label for="txtResidencia">Residencia: {{persona.residencia}}</label>
+            </p>
 
-    <label for="txtReligion">Religión:</label>
-    <input class="form-control" id="txtReligion" value="{{persona.religion}}"/>
+            <p>
+                <label for="txtLlegoPor">Llegó por: {{persona.llegoPor}}</label>
+            </p>
 
-    <label for="txtResidencia">Residencia:</label>
-    <input class="form-control" id="txtResidencia" value="{{persona.residencia}}"/>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="checkDiezmo"
+                    [checked]="persona.diezmo">
+                <label class="form-check-label" for="checkDiezmo">Diezmo</label>
+            </div>
 
-    <label for="txtLlegoPor">Llegó por:</label>
-    <input class="form-control" id="txtLlegoPor" value="{{persona.llegoPor}}"/>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="checkOfrenda"
+                    [checked]="persona.ofrenda">
+                <label class="form-check-label" for="checkOfrenda">Ofrenda</label>
+            </div>
 
-    <label for="txtComentario">Comentario</label>
-    <textarea class="form-control" id="txtLlegoPor" value="{{persona.comentario}}"></textarea>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="checkKit" [checked]="persona.kit">
+                <label class="form-check-label" for="checkKit">Kit</label>
+            </div>
 
-    <div>
-        <p *ngFor="let asistencia of persona.asistencias; index as i; first as isFirst">{{asistencia.fecha}}</p>
-    </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="checkPrope"
+                    [checked]="persona.propedeutico">
+                <label class="form-check-label" for="checkPrope">Propedéutico</label>
+            </div>
 
-    <div>
-        <p *ngFor="let nota of persona.notas; index as i; first as isFirst">{{nota.nota}}</p>
-    </div>
-    <p>Record status : {{persona.activo}}</p>
-    <p>Created at: {{persona.created}}</p>
+            <hr />
 
-</div>
+            <div class="seccion-card">
+                <p>Notas: </p>
+                <div *ngFor="let nota of persona.notas; index as i; first as isFirst" class="nota success">{{nota.nota}}
+                </div>
+                <hr />
+                <p>Asistencias: </p>
+                <p *ngFor="let asistencia of persona.asistencias; index as i; first as isFirst">{{asistencia.fecha}}</p>
+            </div>
+
+            <hr />
+
+            <p>Record status : {{persona.activo}}</p>
+            <p>Created at: {{persona.created}}</p>
+        </div>
+    </figcaption>
+</figure>
