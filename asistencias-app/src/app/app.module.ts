@@ -3,17 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListaPersonasComponent } from './lista-personas/lista-personas.component';
-import { MtoPersonaComponent } from './mto-persona/mto-persona.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { MainComponent } from './main/main.component';
+import { ListaPersonasComponent } from './components/lista-personas/lista-personas.component';
+import { MtoPersonaComponent } from './components/mto-persona/mto-persona.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MainComponent } from './components/main/main.component';
 import { Utils } from './api/Utils';
 import { PersonaDao } from './api/PersonaDao';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UtilidadesDao } from './api/UtilidadesDao';
-import { PersonaComponent } from './persona/persona.component';
+import { PersonaComponent } from './components/persona/persona.component';
+import { DatosPersonaComponent } from './components/datos-persona/datos-persona.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PersonaComponent } from './persona/persona.component';
     HeaderComponent,
     FooterComponent,
     MainComponent,
-    PersonaComponent
+    PersonaComponent,
+    DatosPersonaComponent
   ],
   imports: [
     HttpClientModule,

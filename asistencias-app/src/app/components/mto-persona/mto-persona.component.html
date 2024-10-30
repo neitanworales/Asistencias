@@ -8,13 +8,16 @@
         <label for="comentario">Comentario </label>
         <textarea id="comentario" formControlName="comentario" class="form-control"></textarea>
 
-        <div *ngFor="let sunday of sundays; index as i; first as isFirst">
-            {{sunday}} |
+        <div class="form-check" *ngFor="let sunday of sundays; index as i; first as isFirst">
+            <input (change)="onChange(sunday)" class="form-check-input" type="checkbox" value="" id="flexCheckDefault" [value]="sunday" name="sundays">
+            <label class="form-check-label" for="flexCheckDefault">
+                {{sunday}}
+            </label>
         </div>
 
         <p>Complete the form to enable button.</p>
         <button type="submit" [disabled]="!profileForm.valid">Submit</button>
     </form>
 
-    
+
 </div>

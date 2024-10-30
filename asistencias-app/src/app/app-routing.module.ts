@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './main/main.component';
-import { ListaPersonasComponent } from './lista-personas/lista-personas.component';
-import { MtoPersonaComponent } from './mto-persona/mto-persona.component';
-import { PersonaComponent } from './persona/persona.component';
+import { MainComponent } from './components/main/main.component';
+import { ListaPersonasComponent } from './components/lista-personas/lista-personas.component';
+import { MtoPersonaComponent } from './components/mto-persona/mto-persona.component';
+import { PersonaComponent } from './components/persona/persona.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'asistentes', component: ListaPersonasComponent },
   { path: 'new-asistente', component: MtoPersonaComponent },
   { path: 'edit-asistente', component: MtoPersonaComponent },
-  { path: 'persona', component: PersonaComponent }
+  { path: 'asistente', component: PersonaComponent }
 ];
 
 @NgModule({
