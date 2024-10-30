@@ -74,6 +74,10 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function getData($datos,$persona){
     $persona['asistencias'] = $datos->getAsistenciasByIdPersona($persona['id']);
     $persona['notas'] = $datos->getNotasByIdPersona($persona['id']);
+    $persona['diezmo'] = $persona['diezmo']==1;
+    $persona['ofrenda'] = $persona['ofrenda']==1;
+    $persona['kit'] = $persona['kit']==1;
+    $persona['propedeutico'] = $persona['propedeutico']==1;
     return $persona;
 }
 ?>

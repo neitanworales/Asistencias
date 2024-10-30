@@ -1,3 +1,6 @@
+import { Asistencia } from "./Asistencia";
+import { Nota } from "./Nota";
+
 export class Persona {
     id!: number;
     nombre!: string;
@@ -5,6 +8,7 @@ export class Persona {
     diezmo!: boolean;
     ofrenda!: boolean;
     kit!: boolean;
+    propedeutico!: boolean;
     religion!: string;
     residencia!: string;
     llegoPor!: string;
@@ -12,6 +16,6 @@ export class Persona {
     status!: string;
     activo!: boolean;
     created!: Date;
-    asistencias!: '';
-    notas!:''
+    asistencias!: Asistencia[];
+    notas!: Nota[];
 }

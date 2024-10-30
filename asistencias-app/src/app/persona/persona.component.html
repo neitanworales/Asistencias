@@ -4,18 +4,23 @@
     <p>{{persona.status}}</p>
 
     <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="persona.diezmo" >
-        <label class="form-check-label" for="flexSwitchCheckDefault">Diezmo</label>
+        <input class="form-check-input" type="checkbox" role="switch" id="checkDiezmo" [checked]="persona.diezmo" >
+        <label class="form-check-label" for="checkDiezmo">Diezmo</label>
     </div>
 
     <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="persona.ofrenda">
-        <label class="form-check-label" for="flexSwitchCheckDefault">Ofrenda</label>
+        <input class="form-check-input" type="checkbox" role="switch" id="checkOfrenda" [checked]="persona.ofrenda">
+        <label class="form-check-label" for="checkOfrenda">Ofrenda</label>
     </div>
 
     <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="persona.kit">
-        <label class="form-check-label" for="flexSwitchCheckDefault">Ofrenda</label>
+        <input class="form-check-input" type="checkbox" role="switch" id="checkKit" [checked]="persona.kit">
+        <label class="form-check-label" for="checkKit">Ofrenda</label>
+    </div>
+
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="checkPrope" [checked]="persona.propedeutico">
+        <label class="form-check-label" for="checkPrope">Ofrenda</label>
     </div>
 
     <label for="txtReligion">Religión:</label>
@@ -30,9 +35,13 @@
     <label for="txtComentario">Comentario</label>
     <textarea class="form-control" id="txtLlegoPor" value="{{persona.comentario}}"></textarea>
 
-    {{persona.asistencias}}
-    {{persona.notas}}
+    <div>
+        <p *ngFor="let asistencia of persona.asistencias; index as i; first as isFirst">{{asistencia.fecha}}</p>
+    </div>
 
+    <div>
+        <p *ngFor="let nota of persona.notas; index as i; first as isFirst">{{nota.nota}}</p>
+    </div>
     <p>Record status : {{persona.activo}}</p>
     <p>Created at: {{persona.created}}</p>
 
