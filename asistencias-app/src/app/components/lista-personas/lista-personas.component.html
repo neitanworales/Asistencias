@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>Asistentes y Nuevos asistentes <a class="btn btn-primary" href="/new-asistente">Nuevo</a></h1>
+
+    <div class="row">
+        <div class="col-sm-12 col-lg-3" *ngFor="let persona of personas; index as i; first as isFirst">
+            <app-datos-persona [persona]="persona"></app-datos-persona>
+        </div>
+    </div>
+
+</div>
