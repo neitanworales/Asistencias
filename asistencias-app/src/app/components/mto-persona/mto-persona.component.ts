@@ -49,7 +49,11 @@ export class MtoPersonaComponent implements OnInit {
     this.personaDao.registrarNuevo(persona).subscribe(
       result => {
         console.log(result);
-        alert("creado correctamente")
+        if(result.code==201){
+          alert("Registro creado correctamente");
+        }else{
+          alert("Error al guardar");
+        }
       });
   }
 
