@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './components/main/main.component';
+import { MainComponent } from './pages/main/main.component';
 import { ListaPersonasComponent } from './components/lista-personas/lista-personas.component';
 import { MtoPersonaComponent } from './components/mto-persona/mto-persona.component';
 import { PersonaComponent } from './components/persona/persona.component';
