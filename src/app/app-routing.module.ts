@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './pages/main/main.component';
+import { MainComponent } from './pages/public/main/main.component';
 import { ListaPersonasComponent } from './components/lista-personas/lista-personas.component';
 import { MtoPersonaComponent } from './components/mto-persona/mto-persona.component';
 import { PersonaComponent } from './components/persona/persona.component';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './pages/public/login/login.component';
+import { DashboardComponent } from './pages/private/dashboard/dashboard.component';
+import { AuthGuardService as AuthGuard } from './services/guards/auth-guard.service';
+import { RoleGuardService as RoleGuard } from './services/guards/role-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'main', component: MainComponent },
-  { path: 'asistentes', component: ListaPersonasComponent },
-  { path: 'new-asistente', component: MtoPersonaComponent },
-  { path: 'edit-asistente', component: MtoPersonaComponent },
-  { path: 'asistentes/:id', component: PersonaComponent },
-  { path: 'login', component: LoginComponent}
+  { path: 'asistentes', component: ListaPersonasComponent, canActivate: [RoleGuard] , data: { roles: ["SUPERUSUARIO","ADMINISTRADOR"]}  },
+  { path: 'new-asistente', component: MtoPersonaComponent, canActivate: [RoleGuard] , data: { roles: ["SUPERUSUARIO","ADMINISTRADOR"]}  },
+  { path: 'edit-asistente', component: MtoPersonaComponent, canActivate: [RoleGuard] , data: { roles: ["SUPERUSUARIO","ADMINISTRADOR"]}  },
+  { path: 'asistentes/:id', component: PersonaComponent, canActivate: [RoleGuard] , data: { roles: ["SUPERUSUARIO","ADMINISTRADOR"]}  },
+  { path: 'login', component: LoginComponent},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

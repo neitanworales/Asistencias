@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    apiUrl: 'https://www.neitanworales.com/api/asistencias'
+    apiUrl: 'https://www.neitanworales.com/api/casa-faro/'
 };

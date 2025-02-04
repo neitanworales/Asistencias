@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonaDao } from '../../api/PersonaDao';
+import { PersonaDao } from '../../api/dao/PersonaDao';
 import { Persona } from '../../models/Persona';
 
 @Component({

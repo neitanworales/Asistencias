@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { PersonaDao } from '../../api/PersonaDao';
-import { Persona } from '../../models/Persona';
-import { UtilidadesDao } from '../../api/UtilidadesDao';
-import { Asistencia } from '../../models/Asistencia';
+import { PersonaDao } from '../../api/dao/PersonaDao';
+import { UtilidadesDao } from '../../api/dao/UtilidadesDao';
+import { Asistencia } from 'src/app/models/asistencias/Asistencia';
+import { Persona } from 'src/app/models/Persona';
 
 @Component({
   selector: 'app-mto-persona',

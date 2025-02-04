@@ -1,5 +1,5 @@
-import { Asistencia } from "./Asistencia";
-import { Nota } from "./Nota";
+import { Asistencia } from "./asistencias/Asistencia";
+import { Nota } from "./asistencias/Nota";
 
 export class Persona {
     id!: number;
