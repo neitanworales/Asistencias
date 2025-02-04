@@ -15,6 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UtilidadesDao } from './api/UtilidadesDao';
 import { PersonaComponent } from './components/persona/persona.component';
 import { DatosPersonaComponent } from './components/datos-persona/datos-persona.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SocialComponent } from './pages/social/social.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { DatosPersonaComponent } from './components/datos-persona/datos-persona.
     FooterComponent,
     MainComponent,
     PersonaComponent,
-    DatosPersonaComponent
+    DatosPersonaComponent,
+    LoginComponent,
+    SocialComponent
   ],
   imports: [
     HttpClientModule,
