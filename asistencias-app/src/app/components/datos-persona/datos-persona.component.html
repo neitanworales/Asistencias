@@ -1,72 +1,66 @@
-<figure class="snip1336">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
-    <figcaption>
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample4.jpg" alt="profile-sample4"
-            class="profile" />
-        <h2>{{persona.nombre}}</h2>
-        <p>{{persona.status}}</p>
-        <p>
-            {{persona.telefono}}
-            <a aria-label="Chat on WhatsApp" href="https://wa.me/1{{persona.telefono}}"><img alt="Chat on WhatsApp"
-                    src="./assets/img/WhatsAppButtonGreenMedium.png" /></a>
-        </p>
-        <p>{{persona.comentario}}</p>
-
-
-        <a [routerLink]="['/edit-asistente', persona.id]" class="follow">Editar</a>
-        <a [routerLink]="['/asistentes',  persona.id]" class="info" [hidden]="!shortview">+ Info</a>
-
-        <div [hidden]="shortview">
-            <p>
-                <label for="txtReligion">Religión: {{persona.religion}}</label>
-            </p>
-
-            <p>
-                <label for="txtResidencia">Residencia: {{persona.residencia}}</label>
-            </p>
-
-            <p>
-                <label for="txtLlegoPor">Llegó por: {{persona.llegoPor}}</label>
-            </p>
-
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="checkDiezmo"
-                    [checked]="persona.diezmo">
-                <label class="form-check-label" for="checkDiezmo">Diezmo</label>
-            </div>
-
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="checkOfrenda"
-                    [checked]="persona.ofrenda">
-                <label class="form-check-label" for="checkOfrenda">Ofrenda</label>
-            </div>
-
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="checkKit" [checked]="persona.kit">
-                <label class="form-check-label" for="checkKit">Kit</label>
-            </div>
-
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="checkPrope"
-                    [checked]="persona.propedeutico">
-                <label class="form-check-label" for="checkPrope">Propedéutico</label>
-            </div>
-
-            <hr />
-
-            <div class="seccion-card">
-                <p>Notas: </p>
-                <div *ngFor="let nota of persona.notas; index as i; first as isFirst" class="nota success">{{nota.nota}}
-                </div>
-                <hr />
-                <p>Asistencias: </p>
-                <p *ngFor="let asistencia of persona.asistencias; index as i; first as isFirst">{{asistencia.fecha}}</p>
-            </div>
-
-            <hr />
-
-            <p>Record status : {{persona.activo}}</p>
-            <p>Created at: {{persona.created}}</p>
+<div class="card">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="./assets/img/persona.png" class="img-fluid rounded-start" alt="...">
         </div>
-    </figcaption>
-</figure>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{persona.nombre}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{persona.status}}</h6>
+                <p class="card-text">{{persona.comentario}}</p>
+                <a [routerLink]="['/edit-asistente', persona.id]" class="card-link">Editar</a>
+                <a [routerLink]="['/asistentes',  persona.id]" class="card-link" [hidden]="!shortview">+ Info</a>
+                <div [hidden]="shortview">
+                    <p>
+                        <label for="txtReligion">Religión: {{persona.religion}}</label>
+                    </p>
+                    <p>
+                        <label for="txtResidencia">Residencia: {{persona.residencia}}</label>
+                    </p>
+                    <p>
+                        <label for="txtLlegoPor">Llegó por: {{persona.llegoPor}}</label>
+                    </p>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="checkDiezmo"
+                            [checked]="persona.diezmo">
+                        <label class="form-check-label" for="checkDiezmo">Diezmo</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="checkOfrenda"
+                            [checked]="persona.ofrenda">
+                        <label class="form-check-label" for="checkOfrenda">Ofrenda</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="checkKit"
+                            [checked]="persona.kit">
+                        <label class="form-check-label" for="checkKit">Kit</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="checkPrope"
+                            [checked]="persona.propedeutico">
+                        <label class="form-check-label" for="checkPrope">Propedéutico</label>
+                    </div>
+                    <hr />
+                    <div class="seccion-card">
+                        <p>Notas: </p>
+                        <div *ngFor="let nota of persona.notas; index as i; first as isFirst" class="nota success">
+                            {{nota.nota}}
+                        </div>
+                        <hr />
+                        <p>Asistencias: </p>
+                        <p *ngFor="let asistencia of persona.asistencias; index as i; first as isFirst">
+                            {{asistencia.fecha}}</p>
+                    </div>
+                    <hr />
+                    <p>Record status : {{persona.activo}}</p>
+                    <p>Created at: {{persona.created}}</p>
+                </div>
+            </div>
+            <div class="card-footer text-body-secondary">
+                {{persona.telefono}}
+                <a class="telesforo" aria-label="Chat on WhatsApp" target="_blank" href="https://wa.me/1{{persona.telefono}}"><img alt="Chat on WhatsApp"
+                        src="./assets/img/WhatsAppButtonGreenMedium.png" /></a>
+            </div>
+        </div>
+    </div>
+</div>

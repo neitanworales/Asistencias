@@ -49,6 +49,7 @@ export class MtoPersonaComponent implements OnInit {
     this.personaDao.registrarNuevo(persona).subscribe(
       result => {
         console.log(result);
+        alert("creado correctamente")
       });
   }
 

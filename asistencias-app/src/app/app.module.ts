@@ -7,7 +7,7 @@ import { ListaPersonasComponent } from './components/lista-personas/lista-person
 import { MtoPersonaComponent } from './components/mto-persona/mto-persona.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { MainComponent } from './components/main/main.component';
+import { MainComponent } from './pages/main/main.component';
 import { Utils } from './api/Utils';
 import { PersonaDao } from './api/PersonaDao';
 import { HttpClientModule } from '@angular/common/http';
