@@ -4,6 +4,7 @@ import { MainComponent } from './pages/main/main.component';
 import { ListaPersonasComponent } from './components/lista-personas/lista-personas.component';
 import { MtoPersonaComponent } from './components/mto-persona/mto-persona.component';
 import { PersonaComponent } from './components/persona/persona.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'asistentes', component: ListaPersonasComponent },
   { path: 'new-asistente', component: MtoPersonaComponent },
   { path: 'edit-asistente', component: MtoPersonaComponent },
-  { path: 'asistentes/:id', component: PersonaComponent }
+  { path: 'asistentes/:id', component: PersonaComponent },
+  { path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
