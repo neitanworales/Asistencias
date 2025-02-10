@@ -10,5 +10,4 @@ export class AuthService {
     const result = this.loginDao.validarSession();
     return lastValueFrom(result);
   }
-
 }

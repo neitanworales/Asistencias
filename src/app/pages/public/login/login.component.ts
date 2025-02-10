@@ -24,9 +24,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.sessionBehaivor.getRefresh().subscribe((value: boolean) => {
-      if(value){
+      console.log("in login "+value);
+      if(!value){
+        console.log("lets go to login");
         this.router.navigate(['login']);
       } else {
+        console.log("lets go to dashboard");
         this.router.navigate(['dashboard']);
       }
     });

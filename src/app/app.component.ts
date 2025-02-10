@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './services/guards/auth.service';
 import { SessionBehaivorService } from './services/SessionBehaivorService';
+import { AuthGuardService } from './services/guards/auth-guard.service';
 
 @Component({
   selector: 'app-root',
@@ -10,16 +10,18 @@ import { SessionBehaivorService } from './services/SessionBehaivorService';
 export class AppComponent implements OnInit {
 
   constructor(
-    private auth: AuthService,
+    private authGuard: AuthGuardService,
     private sessionBehaivor: SessionBehaivorService) { }
 
-  ngOnInit(): void {
-    if (!this.auth.isAuthenticated()) {
-      this.sessionBehaivor.setRefresh(false);
-    } else {
-      this.sessionBehaivor.setRefresh(true);
-    }
+  async ngOnInit(): Promise<void> {
+    let isAuth = false;
+    await this.authGuard.canActivate().then(function(){
+      isAuth = true;
+    }, function() {
+      isAuth = false;
+    });
+    console.log("in appcomponent "+isAuth);
+    this.sessionBehaivor.setRefresh(isAuth);
   }
-
   title = 'casa-faro';
 }
