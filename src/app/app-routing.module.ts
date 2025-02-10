@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/public/login/login.component';
 import { DashboardComponent } from './pages/private/dashboard/dashboard.component';
 import { AuthGuardService as AuthGuard } from './services/guards/auth-guard.service';
 import { RoleGuardService as RoleGuard } from './services/guards/role-guard.service';
+import { AccountComponent } from './pages/private/account/account.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'asistentes/:id', component: PersonaComponent, canActivate: [RoleGuard] , data: { roles: ["SUPERUSUARIO","ADMINISTRADOR"]}  },
   { path: 'login', component: LoginComponent},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'account', component: AccountComponent, canActivate: [RoleGuard] , data: { roles: ["SUPERUSUARIO","ADMINISTRADOR"]}  },
 ];
 
 @NgModule({

@@ -15,12 +15,16 @@ export class AppComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     let isAuth = false;
-    await this.authGuard.canActivate().then(function(){
+    await this.authGuard.canActivate().then(function () {
       isAuth = true;
-    }, function() {
+    }, function () {
       isAuth = false;
     });
-    console.log("in appcomponent "+isAuth);
+    let usr = JSON.parse(localStorage.getItem('session')!);
+    if (usr === null) {
+      isAuth = false;
+    }
+    console.log("in appcomponent " + isAuth);
     this.sessionBehaivor.setRefresh(isAuth);
   }
   title = 'casa-faro';

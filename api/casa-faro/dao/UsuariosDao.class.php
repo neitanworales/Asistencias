@@ -196,7 +196,7 @@ class UsuariosDao
     }
 
     public function validarUsuario($email, $password){
-        $que = "SELECT id, email FROM usuarios WHERE email='$email' AND password='$password'";
+        $que = "SELECT id, email, nombre, apellido FROM usuarios WHERE email='$email' AND password='$password'";
         $user = $this->bd->ObtenerConsulta($que);
         if(!empty($user)){
 

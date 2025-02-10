@@ -23,6 +23,7 @@ import { AuthGuardService } from './services/guards/auth-guard.service';
 import { AuthService } from './services/guards/auth.service';
 import { RoleGuardService } from './services/guards/role-guard.service';
 import { SessionBehaivorService } from './services/SessionBehaivorService';
+import { AccountComponent } from './pages/private/account/account.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SessionBehaivorService } from './services/SessionBehaivorService';
     DatosPersonaComponent,
     LoginComponent,
     SocialComponent,
-    DashboardComponent
+    DashboardComponent,
+    AccountComponent
   ],
   imports: [
     HttpClientModule,
