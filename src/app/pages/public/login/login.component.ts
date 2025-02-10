@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginDao } from 'src/app/api/dao/LoginDao';
 import { AuthService } from 'src/app/services/guards/auth.service';
+import { SessionBehaivorService } from 'src/app/services/SessionBehaivorService';
 
 @Component({
   selector: 'app-login',
@@ -19,26 +20,26 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private loginDao: LoginDao,
-    private auth: AuthService) { }
+    private sessionBehaivor: SessionBehaivorService) { }
 
   ngOnInit(): void {
-    console.log("Se validará la sessión");
-    if (!this.auth.isAuthenticated()) {
-      this.router.navigate(['login']);
-    } else {
-      this.router.navigate(['dashboard']);
-    }
+    this.sessionBehaivor.getRefresh().subscribe((value: boolean) => {
+      if(value){
+        this.router.navigate(['login']);
+      } else {
+        this.router.navigate(['dashboard']);
+      }
+    });
   }
 
   onSubmit() {
-    console.log("llegó aquí");
     if (this.loginForm.valid) {
-      console.log("llegó acá");
       this.loginDao.login(this.loginForm.controls['username'].value!,
         this.loginForm.controls['password'].value!).subscribe(
           result => {
             if (result.code == 200) {
               console.log(result.usuario);
+              this.sessionBehaivor.setRefresh(true);
               localStorage.setItem('session', JSON.stringify(result.usuario));
               this.router.navigate(['/dashboard']);
             }

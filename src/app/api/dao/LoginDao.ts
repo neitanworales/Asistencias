@@ -45,4 +45,9 @@ export class LoginDao {
             map(response => response.success)
         );
     }
+
+    public logout(): Observable<DefaultResponse> {
+        this.usuario = JSON.parse(localStorage.getItem('session')!);
+        return this.http.post<DefaultResponse>(environment.apiUrl + 'authorization/logout?id='+this.usuario?.id ,{ headers: this.utils.getHeaders() });
+    }
 }

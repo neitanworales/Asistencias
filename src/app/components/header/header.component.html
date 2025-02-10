@@ -8,14 +8,32 @@
         </div>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a routerLink="/" class="nav-link px-2 link-secondary">Home</a></li>
-            <li><a routerLink="/asistentes" class="nav-link px-2">Asistentes</a></li>
-            <li><a routerLink="/new-asistente" class="nav-link px-2">Nuevo</a></li>
+            <li><a routerLink="/" class="nav-link px-2">Home</a></li>
+            <li><a routerLink="/dashboard" class="nav-link px-2 link-secondary">Dashboard</a></li>
+            <li><a routerLink="/asistentes" class="nav-link px-2 link-secondary">Asistentes</a></li>
+            <li><a routerLink="/new-asistente" class="nav-link px-2 link-secondary">Nuevo</a></li>
+            <li><a routerLink="#" class="nav-link px-2 link-secondary">{{authenticated}}</a></li>
         </ul>
 
-        <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2" routerLink="/login">Login</button>
-            <button type="button" class="btn btn-primary">Sign-up</button>
+        <div class="col-md-3 text-end" *ngIf="!authenticated; else logeado">
+            <button type="button" class="btn btn-outline-primary me-2" routerLink="/login">Ingresar</button>
+            <button type="button" class="btn btn-primary">Crear cuenta</button>
         </div>
+
+        <ng-template #logeado>
+            <div class="col-md-3 text-end">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><button class="dropdown-item" type="button">Action</button></li>
+                      <li><button class="dropdown-item" type="button">Another action</button></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><button class="dropdown-item" type="button" (click)="logout()">Salir</button></li>
+                    </ul>
+                  </div>
+            </div>
+        </ng-template>
     </header>
 </div>

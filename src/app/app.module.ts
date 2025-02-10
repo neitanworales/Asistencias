@@ -22,6 +22,7 @@ import { DashboardComponent } from './pages/private/dashboard/dashboard.componen
 import { AuthGuardService } from './services/guards/auth-guard.service';
 import { AuthService } from './services/guards/auth.service';
 import { RoleGuardService } from './services/guards/role-guard.service';
+import { SessionBehaivorService } from './services/SessionBehaivorService';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { RoleGuardService } from './services/guards/role-guard.service';
     AuthGuardService,
     AuthService,
     RoleGuardService,
+    SessionBehaivorService
   ],
   bootstrap: [AppComponent]
 })
