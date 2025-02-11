@@ -24,6 +24,8 @@ import { AuthService } from './services/guards/auth.service';
 import { RoleGuardService } from './services/guards/role-guard.service';
 import { SessionBehaivorService } from './services/SessionBehaivorService';
 import { AccountComponent } from './pages/private/account/account.component';
+import { ComunidadComponent } from './pages/public/comunidad/comunidad.component';
+import { MediaComponent } from './pages/public/media/media.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { AccountComponent } from './pages/private/account/account.component';
     LoginComponent,
     SocialComponent,
     DashboardComponent,
-    AccountComponent
+    AccountComponent,
+    ComunidadComponent,
+    MediaComponent
   ],
   imports: [
     HttpClientModule,

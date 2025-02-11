@@ -9,11 +9,15 @@
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a routerLink="/" class="nav-link px-2 {{this.router.url === '/main'?'':'link-secondary'}}">Home</a></li>
-            <li><a routerLink="/dashboard" class="nav-link px-2 {{this.router.url === '/dashboard'?'':'link-secondary'}}">Dashboard</a></li>
-            <li><a routerLink="/asistentes" class="nav-link px-2 {{this.router.url === '/asistentes'?'':'link-secondary'}}">Asistentes</a></li>
-            <li><a routerLink="/new-asistente" class="nav-link px-2 {{this.router.url === '/new-asistente'?'':'link-secondary'}}">Nuevo</a></li>
-            <li><a routerLink="#" class="nav-link px-2 link-secondary">{{authenticated}}</a></li>
-            <li><a routerLink="#" class="nav-link px-2 link-secondary">{{this.router.url}}</a></li>
+            <li><a routerLink="/comunidad" class="nav-link px-2 {{this.router.url === '/comunidad'?'':'link-secondary'}}">Comunidad</a></li>
+            <li><a routerLink="/social" class="nav-link px-2 {{this.router.url === '/social'?'':'link-secondary'}}">Social</a></li>
+            <li><a routerLink="/media" class="nav-link px-2 {{this.router.url === '/media'?'':'link-secondary'}}">Media</a></li>
+            
+            <li *ngIf="authenticated"><a routerLink="/dashboard" class="nav-link px-2 {{this.router.url === '/dashboard'?'':'link-secondary'}}">Dashboard</a></li>
+            <li *ngIf="authenticated"><a routerLink="/asistentes" class="nav-link px-2 {{this.router.url === '/asistentes'?'':'link-secondary'}}">Asistentes</a></li>
+            <li *ngIf="authenticated"><a routerLink="/new-asistente" class="nav-link px-2 {{this.router.url === '/new-asistente'?'':'link-secondary'}}">Nuevo</a></li>
+            <li *ngIf="authenticated"><a routerLink="#" class="nav-link px-2 link-secondary">{{authenticated}}</a></li>
+            <li *ngIf="authenticated"><a routerLink="#" class="nav-link px-2 link-secondary">{{this.router.url}}</a></li>
         </ul>
 
         <div class="col-md-3 text-end" *ngIf="!authenticated; else logeado">
