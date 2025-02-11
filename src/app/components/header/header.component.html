@@ -1,6 +1,6 @@
 <div class="container">
     <header
-        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
         <div class="col-md-3 mb-2 mb-md-0">
             <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
                 <img src="./assets/img/farologuito.png" alt="Casa Faro" width="70em">
@@ -8,14 +8,32 @@
         </div>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a routerLink="/" class="nav-link px-2 link-secondary">Home</a></li>
-            <li><a routerLink="/asistentes" class="nav-link px-2">Asistentes</a></li>
-            <li><a routerLink="/new-asistente" class="nav-link px-2">Nuevo</a></li>
+            <li><a routerLink="/" class="nav-link px-2 {{this.router.url === '/main'?'':'link-secondary'}}">Home</a></li>
+            <li><a routerLink="/dashboard" class="nav-link px-2 {{this.router.url === '/dashboard'?'':'link-secondary'}}">Dashboard</a></li>
+            <li><a routerLink="/asistentes" class="nav-link px-2 {{this.router.url === '/asistentes'?'':'link-secondary'}}">Asistentes</a></li>
+            <li><a routerLink="/new-asistente" class="nav-link px-2 {{this.router.url === '/new-asistente'?'':'link-secondary'}}">Nuevo</a></li>
+            <li><a routerLink="#" class="nav-link px-2 link-secondary">{{authenticated}}</a></li>
+            <li><a routerLink="#" class="nav-link px-2 link-secondary">{{this.router.url}}</a></li>
         </ul>
 
-        <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2" routerLink="/login">Login</button>
-            <button type="button" class="btn btn-primary">Sign-up</button>
+        <div class="col-md-3 text-end" *ngIf="!authenticated; else logeado">
+            <button type="button" class="btn btn-outline-primary me-2" routerLink="/login">Ingresar</button>
+            <button type="button" class="btn btn-primary">Crear cuenta</button>
         </div>
+
+        <ng-template #logeado>
+            <div class="col-md-3 text-end">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      {{this.usuario?.nombre}}
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><button routerLink="/account" class="dropdown-item" type="button">Cuenta</button></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><button class="dropdown-item" type="button" (click)="logout()">Salir</button></li>
+                    </ul>
+                  </div>
+            </div>
+        </ng-template>
     </header>
 </div>

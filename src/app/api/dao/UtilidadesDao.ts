@@ -1,9 +1,9 @@
 import { HttpClient } from "@angular/common/http";
-import { SundaysResponse } from "../models/SundaysResponse";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment.development";
-import { Utils } from "./Utils";
+import { Utils } from "../Utils";
+import { SundaysResponse } from "src/app/models/asistencias/SundaysResponse";
 
 @Injectable()
 export class UtilidadesDao {

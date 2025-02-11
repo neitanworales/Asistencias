@@ -1,12 +1,12 @@
 import { HttpClient } from "@angular/common/http";
-import { Utils } from "./Utils";
+import { Utils } from "../Utils";
 import { Injectable } from "@angular/core";
-import { PersonasResponse } from "../models/PersonasResponse";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment.development";
-import { Persona } from "../models/Persona";
-import { DefaultResponse } from "../models/DefaultResponse";
-import { PersonaResponse } from "../models/PersonaResponse";
+import { DefaultResponse } from "src/app/models/DefaultResponse";
+import { Persona } from "src/app/models/Persona";
+import { PersonaResponse } from "src/app/models/PersonaResponse";
+import { PersonasResponse } from "src/app/models/PersonasResponse";
 
 @Injectable()
 export class PersonaDao {

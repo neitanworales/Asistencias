@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from '../../models/Persona';
-import { PersonaDao } from '../../api/PersonaDao';
+import { PersonaDao } from '../../api/dao/PersonaDao';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
